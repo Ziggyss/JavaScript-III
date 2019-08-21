@@ -46,6 +46,8 @@
   - Give persons the ability to poop.
   - When pooping, the stomach should empty.
 
+  
+
   TASK 2
 
   - Build a Car constructor that takes model name and make.
@@ -70,6 +72,28 @@
   complicated one with lots of state. Surprise us!
 
 */
+
+//Task 1
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+}
+Person.prototype.greet = function() {
+  return this.name + this.age;
+}
+Person.prototype.eatEdibles = function (food) {
+  return this.stomach.push(food);
+}
+Person.prototype.poop = function(){
+  this.stomach = [];
+};
+
+const Bob = new Person('Bob', 35);
+
+//Task 2
+
 
 /*
 
