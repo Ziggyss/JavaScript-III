@@ -176,6 +176,7 @@ Plant.prototype.coldDay = function(){
   if(this.location === 'outside'){
     return 'Move' + this.name + 'into greenhouse.';
   }
+  return 'Leave ' + this.name + ' alone.';
 }
 
 Plant.prototype.forgot = function(){
@@ -188,8 +189,10 @@ Plant.prototype.healthStatus = function(){
     return 'RIP ' + this.name;
   }
   return this.health;
-}
 
+};
+
+const basil = new Plant('basil', 'greenhouse');
 /*
 
   STRETCH TASK
