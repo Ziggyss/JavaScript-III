@@ -261,6 +261,8 @@ Humanoid.prototype = Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function(){
   return '${this.name} offers a greeting in ${this.langage}';
 };
+//Ask Justinas how to make Humanoid section work. 
+
 /*
   === CharacterStats ===
   * healthPoints
