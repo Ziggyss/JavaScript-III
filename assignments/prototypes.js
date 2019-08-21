@@ -233,6 +233,7 @@ function GameObject (date, name, dimensions){
   this.createdAt = date;
   this.name = name;
   this.dimensions = dimensions
+  //Need to check how to place objects corrently within the parameters.
 
   GameObject.prototype.destroy = function(){
     return '${this.name} was removed from the game.'
