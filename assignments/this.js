@@ -7,7 +7,7 @@
 
 * 3. New Binding refers to when a Constructor function is being called. In this case, 'this' refers to the object that the constructor is creating.
 
-* 4. Explicit Binding: in the case of invoking functions with call and apply, or copying functions with bind, you can assign 'this' within the brackets to whatever you want. 
+* 4. Explicit Binding: in the case of invoking functions with call and apply, or copying functions with bind, you can assign 'this' within the brackets to whatever you want. This is known as explicit binding.
 *
 * write out a code example of each explanation above
 */
@@ -31,8 +31,22 @@ littleObject.littleMethod();
 // Principle 3
 
 // code example for New Binding
+function game(title, category, cost) {
+    this.name = title;
+    this.game_type = category;
+    this.price = cost;
+  }
+  
+  let witcher3 = new game('The Witcher 3', 'RPG', 40);
+  let dragonAge = new game('Dragon Age Inquisition', 'RPG', 25);
 
 
 // Principle 4
 
 // code example for Explicit Binding
+function report() {
+    console.log(this);
+};
+
+var statusReport = report.bind('The assignment is done.');
+
