@@ -193,6 +193,23 @@ Plant.prototype.healthStatus = function(){
 };
 
 const basil = new Plant('basil', 'greenhouse');
+
+//Example 3
+
+function Seedling (name, location, weeksOld){
+  Plant.call(this, name, location);
+  this.age = weeksOld;
+}
+Seedling.prototype = Object.create(Plant.prototype);
+
+Seedling.prototype.newPotCheck = function() {
+  if(age % 4 === 0){
+    return 'Move ' + this.name + ' to a bigger pot.';
+  }
+  return 'Leave ' + this.name + 'for now.';
+};
+
+const babyBasil = new Seedling (babyBasil, greenhouse, 2);
 /*
 
   STRETCH TASK
@@ -211,6 +228,25 @@ const basil = new Plant('basil', 'greenhouse');
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
+function GameObject (date, name, dimensions){
+  dimensions = {length: 0, width: 0, height: 0};
+  this.createdAt = date;
+  this.name = name;
+  this.dimensions = dimensions
+
+  GameObject.prototype.destroy = function(){
+    return '${this.name} was removed from the game.'
+  }
+  };
+
+function CharacterStats (date, name, dimensions, healthPoints){
+  GameObject.call(this, date, name, dimensions);
+  this.healthPoints = healthPoints;
+}
+CharacterStats.prototype = Object.create(GameObject.prototype);
+CharacterStats.prototype.takeDamage = function (){
+  return '${this.name} took damage.';
+}
 
 /*
   === CharacterStats ===
