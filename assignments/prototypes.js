@@ -127,7 +127,35 @@ Baby.prototype.play = function (toy){
 
 const BobbieJr = new Baby('Bobbie Junior', 1);
 
+//Task 4
+//Example 1: 
 
+function Student(name, course) {
+  this.name = name;
+  this.course = course;
+  this.testsTaken = 0;
+  this.totalScore = 0;
+  this.averageScore = 0;
+}
+Student.prototype.details = function() {
+  return this.name + ' ' + this.course + ' ' + this.averageScore;
+}
+Student.prototype.takeTest = function(score) {
+  this.testsTaken ++;
+  this.totalScore += score;
+  this.averageScore = this.totalScore / this.testsTaken;
+}
+
+Student.prototype.passing = function(){
+if (this.averageScore >= 70){
+    return true;
+  }
+  else {
+    return false;
+  }
+};
+
+const student1 = new Student('Lisa', 'WEBEU3');
 
 /*
 
