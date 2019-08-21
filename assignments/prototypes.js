@@ -232,19 +232,22 @@ function GameObject (date, name, dimensions){
   this.createdAt = date;
   this.name = name;
   this.dimensions = dimensions;
-}
 
-  GameObject.prototype.destroy = function(){
+
+GameObject.prototype.destroy = function(){
     return '${this.name} was removed from the game.';
-  };
+  }
+}; 
 
 function CharacterStats (date, name, dimensions, healthPoints){
   GameObject.call(this, date, name, dimensions);
   this.healthPoints = healthPoints;
-}
+
+
 CharacterStats.prototype = Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage = function (){
   return '${this.name} took damage.';
+}
 };
 
 function Humanoid ({date, name, dimensions, healthPoints, team, weapons, language}){
@@ -252,7 +255,7 @@ function Humanoid ({date, name, dimensions, healthPoints, team, weapons, languag
   this.team = team;
   this.weapons = weapons;
   this.language = language;
-};
+}
 
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 Humanoid.prototype.greet = function(){
