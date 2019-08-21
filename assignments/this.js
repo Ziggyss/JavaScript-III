@@ -15,14 +15,23 @@
 // Principle 1
 
 // code example for Window Binding
+ var windowThis = this;
 
 // Principle 2
 
 // code example for Implicit Binding
+var littleObject = {
+    littleMethod: function(){
+        console.log(this);
+    }
+};
+
+littleObject.littleMethod();
 
 // Principle 3
 
 // code example for New Binding
+
 
 // Principle 4
 
