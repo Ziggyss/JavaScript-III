@@ -157,6 +157,39 @@ if (this.averageScore >= 70){
 
 const student1 = new Student('Lisa', 'WEBEU3');
 
+//Example 2
+
+function Plant(name, location){
+  this.name = name;
+  this.location = location;
+  this.health = 100;
+}
+
+Plant.prototype.hotDay = function(){
+  if (this.location === 'greenhouse'){
+    return 'Water and move ' + this.name + ' outside';
+  }
+  return 'Water' + this.name + '.'; 
+}
+
+Plant.prototype.coldDay = function(){
+  if(this.location === 'outside'){
+    return 'Move' + this.name + 'into greenhouse.';
+  }
+}
+
+Plant.prototype.forgot = function(){
+  this.health -= 20;
+  return this.health;
+}
+
+Plant.prototype.healthStatus = function(){
+  if (this.health <20){
+    return 'RIP ' + this.name;
+  }
+  return this.health;
+}
+
 /*
 
   STRETCH TASK
