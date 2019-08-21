@@ -229,16 +229,13 @@ const babyBasil = new Seedling (babyBasil, greenhouse, 2);
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
 function GameObject (date, name, dimensions){
-  dimensions = {length: 0, width: 0, height: 0};
   this.createdAt = date;
   this.name = name;
   this.dimensions = dimensions;
 }
-  //Need to check how to place objects corrently within the parameters.
-  //Need to figure out how to enter date and in what format. Seems to be a function?
 
   GameObject.prototype.destroy = function(){
-    return '${this.name} was removed from the game.'
+    return '${this.name} was removed from the game.';
   };
 
 function CharacterStats (date, name, dimensions, healthPoints){
@@ -248,8 +245,19 @@ function CharacterStats (date, name, dimensions, healthPoints){
 CharacterStats.prototype = Object.create(GameObject.prototype);
 CharacterStats.prototype.takeDamage = function (){
   return '${this.name} took damage.';
-}
+};
 
+function Humanoid ({date, name, dimensions, healthPoints, team, weapons, language}){
+  CharacterStats.call(this, date, name, dimensions, healthPoints);
+  this.team = team;
+  this.weapons = weapons;
+  this.language = language;
+};
+
+Humanoid.prototype = Object.create(CharacterStats.prototype);
+Humanoid.prototype.greet = function(){
+  return '${this.name} offers a greeting in ${this.langage}';
+};
 /*
   === CharacterStats ===
   * healthPoints
@@ -275,7 +283,7 @@ CharacterStats.prototype.takeDamage = function (){
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -333,4 +341,4 @@ CharacterStats.prototype.takeDamage = function (){
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
+
