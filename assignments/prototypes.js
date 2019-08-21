@@ -232,12 +232,13 @@ function GameObject (date, name, dimensions){
   dimensions = {length: 0, width: 0, height: 0};
   this.createdAt = date;
   this.name = name;
-  this.dimensions = dimensions
+  this.dimensions = dimensions;
+}
   //Need to check how to place objects corrently within the parameters.
+  //Need to figure out how to enter date and in what format. Seems to be a function?
 
   GameObject.prototype.destroy = function(){
     return '${this.name} was removed from the game.'
-  }
   };
 
 function CharacterStats (date, name, dimensions, healthPoints){
