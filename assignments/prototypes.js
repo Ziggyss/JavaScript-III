@@ -93,23 +93,26 @@ Person.prototype.poop = function(){
 const Bob = new Person('Bob', 35);
 
 //Task 2
-function Car(model, make){
+function Car(make, model){
   this.model = model;
   this.make = make;
   this.odometer = 0;
   this.canDrive = true;
 
   Car.prototype.drive = function(distance){
-    return this.odometer + distance;
+    this.odometer += distance;
   }
   Car.prototype.crash = function(){
     this.canDrive = false;
-    return 'I crashed at ${this.odometer} miles';
+    return 'I crashed at ' + this.odometer + ' miles';
   }
-  Car.prototype.repaor = function(){
+  Car.prototype.repair = function(){
      this.canDrive = true;
   }
 };
+
+const myCar = new Car('Seat', 'Ibiza');
+
 
 /*
 
