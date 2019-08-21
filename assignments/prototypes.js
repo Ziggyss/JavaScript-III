@@ -81,7 +81,7 @@ function Person(name, age) {
   this.stomach = [];
 }
 Person.prototype.greet = function() {
-  return this.name + this.age;
+  return this.name + ' ' + this.age;
 }
 Person.prototype.eatEdibles = function (food) {
   return this.stomach.push(food);
@@ -112,6 +112,21 @@ function Car(make, model){
 };
 
 const myCar = new Car('Seat', 'Ibiza');
+
+//Task 3
+
+function Baby(name, age){
+  Person.call(this, name, age);
+}
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function (toy){
+  return this.name + ' is playing with ' + toy + '.';
+ };
+
+const BobbieJr = new Baby('Bobbie Junior', 1);
+
 
 
 /*
